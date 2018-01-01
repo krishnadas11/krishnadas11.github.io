@@ -1,0 +1,18 @@
+body {
+    min-width: 1200px;
+    background-color: black;
+}
+
+.header {
+    background-color: #616161;
+    height: 80px;
+    margin: 10px;
+}
+
+#header-float-left {
+    text-shadow: 2px 2px black;
+}
+
+#header-float-right {
+    text-shadow: 2px 2px black;
+}
