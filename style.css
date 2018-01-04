@@ -1,18 +1,83 @@
 body {
-    min-width: 1200px;
+    width: 100%;
+    height: 100%;
     background-color: black;
+    margin: 0px;
+    padding: 0px;
 }
 
 .header {
-    background-color: #616161;
+    background: linear-gradient(to bottom right, #303030 15%, white);
+    color: white;
+    font-family: "Open Sans Condensed";
+    font-size: 18px;
+    font-weight: 100;
     height: 80px;
-    margin: 10px;
+    padding: 30px 10px 20px;
+    position: block;
 }
 
-#header-float-left {
-    text-shadow: 2px 2px black;
+.menu-button {
+    display: none;
 }
 
-#header-float-right {
-    text-shadow: 2px 2px black;
+#header-title {
+    letter-spacing: 5px;
+    text-shadow: 3px 3px 9px black;
+    position: absolute;
 }
+
+.header-float-right {
+    float: right;
+    font-size: 16px;
+    letter-spacing: 3px;
+    text-shadow: 3px 3px 6px black;
+    margin: 0px 20px 0px;
+}
+
+.header-float-right:hover {
+    transition: color 0.2s;
+    cursor: pointer;
+    color: black;
+}
+
+.menu-overlay {
+    z-index: -100;
+    opacity: 0;
+}
+
+/*
+ * Media query for mobile devices.
+ * 768 is the width of upright tablet.
+ */
+@media (max-width: 768px) {
+    .header {
+        height: 60px;
+        padding: 15px 10px 15px;
+    }
+
+    .header-float-right {
+        display: none;
+    }
+
+    .menu-button {
+        display: block;
+        float: right;
+        background-color: transparent;
+        margin-top: -5px;
+    }
+
+    .menu-button:hover {
+        color: #616161;
+    }
+
+    .menu-overlay {
+        top: 0;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to top left, black, white);
+    }
+}
+
+

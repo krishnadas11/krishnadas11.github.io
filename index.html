@@ -1,18 +1,68 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>k r i s h </title>
+        <title>k r i s h n a</title>
 
+        <!-- Serif fonts -->
         <link href="https://fonts.googleapis.com/css?family=Alegreya|Open+Sans|PT+Sans+Narrow|Playfair+Display|Quattrocento" rel="stylesheet">
+        <!-- Narrow/Minimal fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Inconsolata|Open+Sans+Condensed:300|Raleway" rel="stylesheet">
+
+        <!-- BOOTSTRAP ELEMENTS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+
         <link rel="stylesheet" href="style.css"> 
     </head>
 
     <body>
+        <!-- HEADER -->
         <div class="header">
-            <div id="header-float-left">K R I S H N A  D A S</div>
+            <div id="header-title">KRISHNA</div>
+            
+            <!-- Button used on mobile devices -->
+            <button type="button" class="btn menu-button" aria-label="menu" onClick="openMenuOverlay()">
+                <img src="open-iconic/svg/menu.svg">
+            </button>
 
-            <div id="header-float-right">C O N T A C T</div>
-            <div id="header-float-right">A B O U T</div> 
+            <!-- Header items displayed when not on mobile devices -->
+            <div class="header-float-right" onClick="goToAbout()">ABOUT</div>
+            <div class="header-float-right" onClick="goToContact()">CONTACT</div>
         </div>
+
+        <!-- HEADER MENU OVERLAY -->
+        <div class="menu-overlay">
+            <button type="button" id="menu-close" onClick="closeMenuOverlay()">
+                <img src="open-iconic/svg/account-logout.svg"> 
+            </button>
+
+            <!-- TODO: About/Contact buttons -->
+        </div>
+        
+
+        <!-- Script for menu-overlay open/close button -->
+        <script>
+            var menuOverlay = document.getElementsByClassName('menu-overlay')[0];
+
+            function openMenuOverlay() {
+                menuOverlay.style.zIndex = "100";
+                menuOverlay.style.transition = "opacity 0.5s";
+                menuOverlay.style.opacity = "1";
+            }
+
+            function closeMenuOverlay() {
+                menuOverlay.style.transition = "opacity 0.5s";
+                menuOverlay.style.opacity = "0";
+                menuOverlay.style.zIndex = "-100";
+            }
+
+            // TODO: finish about/contact menu buttons.
+            function goToAbout() {
+                console.log("SUH DUDE");
+            }
+
+            function goToContact() {
+
+            }
+        </script>
     </body>
 </html>
