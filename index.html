@@ -62,13 +62,13 @@
         <!-- MAIN BODY CONTENT -->
         <div class="main-body">
             <section id="portraits">
-                <div class="portrait" onClick="openP1Modal()">
+                <div class="portrait" onClick="openPortraitModal('p1')">
                     <div class="portrait-title">
                         Trojan in the Trap 
                     </div>
                     <img src="images/travis_closeup_resized.png">
                 </div>
-                <div class="portrait" id="portrait-2" onClick="openP2Modal()">
+                <div class="portrait" id="portrait-2" onClick="openPortraitModal('p2')">
                     <div class="portrait-title">
                         A Close Shave 
                     </div>
@@ -106,13 +106,13 @@
         <div class="portrait-modal p1">
             <div class="background-image bi1"></div>
             <div class="portrait-row pr1">
-                <div class="col-xs-5 col-sm-1 col-lg">
+                <div class="col-xs-5 col-sm-5 col-lg">
                     <!-- TODO: Port images into div -->    
                 </div>
-                <div class="col-xs-5 col-sm-1 col-lg">
+                <div class="col-xs-6 col-sm-6 col-lg">
                 </div>
                 <div class="col-xs-1 col-sm-1 col-lg">
-                    <span id="portrait-modal-close">X</span>
+                    <span id="portrait-modal-close" onClick="closePortraitModal('p1')">X</span>
                 </div>
             </div>
             
@@ -135,19 +135,22 @@
                 <div class="hidden-sm-down col-lg-3">
                 </div>
             </div>
+            <div>
+                <img src='images/travis_full.png' class="full-image">
+            </div>
         </div>
 
         <!-- PORTRAIT MODALS -->
         <div class="portrait-modal p2">
             <div class="background-image bi2"></div>
             <div class="portrait-row pr1">
-                <div class="col-xs-5 col-sm-1 col-lg">
+                <div class="col-xs-5 col-sm-5 col-lg">
                     <!-- TODO: Port images into div -->    
                 </div>
-                <div class="col-xs-5 col-sm-1 col-lg">
+                <div class="col-xs-6 col-sm-6 col-lg">
                 </div>
                 <div class="col-xs-1 col-sm-1 col-lg">
-                    <span id="portrait-modal-close">X</span>
+                    <span id="portrait-modal-close" onClick="closePortraitModal('p2')">X</span>
                 </div>
             </div>
             
@@ -166,15 +169,8 @@
                 <div class="hidden-sm-down col-lg-3">
                 </div>
             </div>
-
-            <div class="portrait-row">
-                <div class="hidden-sm-down col-lg">
-                </div>
-                <div class="hidden-sm-down col-lg">
-                </div>
-                <div class="hidden-sm-down col-lg">
-                    <!-- TODO: Port images into div -->    
-                </div>
+            <div>
+                <img src='images/close_shave.png' class="full-image">
             </div>
         </div>
 
@@ -193,7 +189,6 @@
         <!-- Script for menu-overlay open/close button -->
         <script>
             var menuOverlay = document.getElementsByClassName('menu-overlay')[0];
-
             function openMenuOverlay() {
                 menuOverlay.style.zIndex = "100";
                 menuOverlay.style.transition = "opacity 0.5s";
@@ -204,6 +199,23 @@
 
                 alignVerticalX();
             };
+            
+            function openPortraitModal(portrait) {
+                var portrait = document.getElementsByClassName(portrait)[0];
+                portrait.style.zIndex = '100';
+                portrait.style.transition = 'opacity 0.5s';
+                portrait.style.opacity = '1';
+                $('body').addClass('stop-scrolling');
+                window.scrollTo(0, 0);
+            };
+
+            function closePortraitModal(portrait) {
+                var portrait = document.getElementsByClassName(portrait)[0];
+                portrait.style.transition = 'opacity 0.5s';
+                portrait.style.opacity = '0';
+                portrait.style.zIndex = '-100';
+                $('body').removeClass('stop-scrolling');
+            }
 
             function closeMenuOverlay() {
                 menuOverlay.style.transition = "opacity 0.5s";
@@ -236,10 +248,21 @@
 
             var portraitModalHeight = $(".portrait-modal").height();
             $('.portrait-row').height(portraitModalHeight / 3);
+
             var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
             if (width < 768) {
                 $('.pr1').height(40);
             }
+
+            $(".full-image").bind('inview', function(event, visible) {
+                console.log("function working");
+                if (visible == true) {
+                    $("full-image").addClass("stop-scrolling");
+                    alert('FOUND FULL-IMAGE');
+                } else {
+                    $("full-image").removeClass("stop-scrolling");
+                }
+            })
         </script>
     </body>
 </html>
