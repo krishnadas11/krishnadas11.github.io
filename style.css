@@ -108,8 +108,7 @@ body {
     z-index: -1;
 
     display: block;
-    background-image: url('images/travis_closeup_resized.png');
-    background-size: auto;
+    background-size: 1000px;
     height: 100vh;
     width: 100%;
 
@@ -120,9 +119,18 @@ body {
     filter: blur(5px);
 }
 
+.bi1 {
+    background-image: url('images/travis_closeup_resized.png');
+}
+
+.bi2 {
+    background-image: url('images/portrait_2.png');
+}
+
 .portrait-desc {
     color: #bbbbbb;
     text-shadow: 3px 3px 9px black;
+    font-size: 18px;
 }
 
 .p1 {
@@ -190,8 +198,8 @@ body {
 
 #portrait-modal-close {
     position: absolute;
-    right: 10px;
-    top: 10px;
+    right: 30px;
+    top: 30px;
 }
 /*
  * Media query for mobile devices.
@@ -250,6 +258,10 @@ body {
         background-image: -moz-linear-gradient(bottom left, rgba(43, 40, 50, 0.8) 0%, rgba(83, 86, 99, 0.8) 45%, rgba(69, 77, 91, 0.6) 60%);
         background-image: -o-linear-gradient(bottom left, rgba(43, 40, 50, 0.8) 0%, rgba(83, 86, 99, 0.8) 45%, rgba(69, 77, 91, 0.6) 60%);
         background-image: linear-gradient(to top right, rgba(43, 40, 50, 0.8) 0%, rgba(83, 86, 99, 0.8) 45%, rgba(69, 77, 91, 0.6) 60%);
+    }
+
+    .portrait-desc {
+        font-size: 14px;
     }
 
 }
